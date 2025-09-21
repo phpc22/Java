@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Principal{
+    static Scanner input = new Scanner(System.in);
+    
+    public static void main(String[]args){
+        System.out.println("Digite quantos numeros primos quer ver");
+        int n = input.nextInt();    //quantos numeros primos mostrar
+        int contagem = 0;           //conta quantos ja foram
+        int num = 2;                //apartir do numero 2
+        System.out.println("");
+        
+        while (contagem < n){   //enquanto a contagem for menos que os numeros pedidos faça:
+            if (isPrimo(num)){  //se o numero for primo
+                System.out.print(num + " "); //imprima ele
+                contagem++;                 //incrementa um na contagem
+            }
+            num++;                          //proximo numero
+        }
+        System.out.println();
+        //input.close();
+    }
+
+     public static boolean isPrimo(int n) {
+        if (n < 2) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+}
